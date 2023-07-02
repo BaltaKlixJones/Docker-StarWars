@@ -1,8 +1,10 @@
 const {Router} = require('express');
-const router = Router();
 const controllers = require('../controllers');
+const middlewares = require('../middlewares');
+
+const router = Router();
 
 router.get('/', controllers.getPlanets)
-router.post('/', controllers.createPlantes)
+router.post('/', middlewares.planetValidation, controllers.createPlantes)
 
 module.exports = router;
