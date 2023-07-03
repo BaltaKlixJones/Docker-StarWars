@@ -2,7 +2,7 @@ const { Schema } = require("mongoose");
 
 const filmSchema = new Schema({
   _id: String,
-  title: {String, required: true},
+  title: String,
   opening_crawl: String,
   director: String,
   producer: String,

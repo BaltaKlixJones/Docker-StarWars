@@ -2,7 +2,7 @@ const { Schema } = require("mongoose");
 
 const characterSchema = new Schema({
   _id: String,
-  name: {String, required: true},
+  name: String,
   height: String,
   mass: String,
   hair_color: String,
