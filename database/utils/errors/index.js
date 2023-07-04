@@ -1,8 +1,8 @@
-class modelError extends Error {
+class ModelError extends Error {
   constructor(message, statusCode = 400) {
     super(message);
     this.statusCode = statusCode;
   }
 }
 
-module.exports = modelError;
+module.exports = {ModelError};
