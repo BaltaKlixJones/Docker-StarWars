@@ -5,4 +5,11 @@ class ModelError extends Error {
   }
 }
 
-module.exports = {ModelError};
+class PostError extends Error {
+  constructor(message, statusCode = 400) {
+    super(message)
+    this.statusCode = statusCode
+  }
+}
+
+module.exports = {ModelError, PostError};
