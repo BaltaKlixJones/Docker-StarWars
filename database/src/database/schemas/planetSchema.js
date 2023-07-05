@@ -30,4 +30,8 @@ const planetSchema = new Schema({
         return await this.create(planet)
     }
 
+    planetSchema.statics.delete = async function(id) {
+        return await this.findByIdAndDelete(id);
+      }
+
 module.exports = planetSchema;
