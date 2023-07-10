@@ -1,6 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-const { createProxyMiddleware } = require("http-proxy-middleware");
+const { createProxyMiddleware, fixRequestBody } = require("http-proxy-middleware");
 
 const app = express();
 app.use(morgan("dev"));
@@ -12,6 +12,7 @@ app.use(
   createProxyMiddleware({
     target: "http://characters:8001",
     changeOrigin: true,
+    onProxyReq: fixRequestBody
   })
 );
 
@@ -20,6 +21,7 @@ app.use(
   createProxyMiddleware({
     target: "http://films:8002",
     changeOrigin: true,
+   
   })
 );
 
@@ -30,6 +32,8 @@ app.use(
     changeOrigin: true,
   })
 );
+
+
 
 app.listen(8000, () => {
   console.log("Gateway running on port 8000");
