@@ -6,7 +6,12 @@ module.exports = {
     const response = await axios.get("http://database:8004/Film")
     return response.data;
   },
-  create: async () => {
-    throw new Error("Hay un error en la BDD en crear Films ");
+  getById: async (id) => {
+   const res = await axios.get(`http://database:8004/Film/${id}`)
+   return res.data
+  },
+  create: async (data) => {
+    const res =  await axios.post("http://database:8004/Film", data)
+    return res.data
   },
 };
