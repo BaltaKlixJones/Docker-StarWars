@@ -3,14 +3,15 @@ const { PostError } = require("../../utils/errors");
 module.exports = (req, res, next) => {
   const validModels = ["Character", "Film", "Planet"];
   const { model } = req.params;
-  const { name, _id, title } = req.body;
+  const { _id, name, title } = req.body;
 
   if (!validModels.includes(model)) {
     throw new PostError("Invalid model", 401);
-  }
+  } 
   if (!_id) {
-    throw new PostError("Id is necesary", 401);
+    throw new PostError("Id is necesary asad", 401);
   }
+   
   if (
     (model === validModels[0] && !name) ||
     (model === validModels[2] && !name)

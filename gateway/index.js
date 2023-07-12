@@ -21,7 +21,7 @@ app.use(
   createProxyMiddleware({
     target: "http://films:8002",
     changeOrigin: true,
-   
+    onProxyReq: fixRequestBody
   })
 );
 
@@ -30,6 +30,7 @@ app.use(
   createProxyMiddleware({
     target: "http://planets:8003",
     changeOrigin: true,
+    onProxyReq: fixRequestBody
   })
 );
 
