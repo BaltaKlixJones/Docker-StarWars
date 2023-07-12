@@ -4,7 +4,7 @@ const {validateModel, postModelValidate, deleteModelValidate} = require("../midd
 
 const router = Router();
 
-router.post("/:model", validateModel, controller.postModel);
+router.post("/:model", postModelValidate, controller.postModel);
 
 router.get("/:model", validateModel, controller.getModel);
 
