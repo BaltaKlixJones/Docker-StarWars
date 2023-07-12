@@ -1,11 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
 const { createProxyMiddleware, fixRequestBody } = require("http-proxy-middleware");
-
+const cors = require('cors')
 const app = express();
 app.use(morgan("dev"));
 
 app.use(express.json());
+const corsOptions = {
+  origin: 'http://localhost:5173',
+}
+app.use(cors(corsOptions))
 
 app.use(
   "/characters",
