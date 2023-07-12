@@ -14,4 +14,8 @@ module.exports = {
     const res =  await axios.post("http://database:8004/Film", data)
     return res.data
   },
+  delete: async (id) => {
+    const res = await axios.delete(`http://database:8004/Film/${id}`)
+    return res.data
+  }
 };

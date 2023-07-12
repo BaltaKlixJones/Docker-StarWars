@@ -13,4 +13,8 @@ module.exports = {
     const res = await axios.post("http://database:8004/Character", data);
     return res.data;
   },
+  delete: async (id) => {
+    const response = await axios.delete(`http://database:8004/Character/${id}`)
+    return response.data
+  }
 };
